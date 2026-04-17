@@ -7,8 +7,11 @@ import "./globals.css";
 import { LayoutBase } from "./layout/LayoutBase/LayoutBase";
 
 export const metadata: Metadata = {
-  title: "dindin",
+  title: "DinDin",
   description: "Gestão de dados financeiros",
+  icons: {
+    icon: "/icon.svg",
+  },
 };
 
 const roboto = Roboto({

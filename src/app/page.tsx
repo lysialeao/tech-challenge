@@ -26,7 +26,10 @@ export default function Home() {
     <div className="min-h-screen w-full flex flex-col">
       <div className="w-full">
         <AccountBalance transactions={transactions} />
+        {/* Cadastro */}
         <AddTransactionForm addTransaction={createTransaction} />
+        {/* Edição */}
+        {/* <AddTransactionForm addTransaction={createTransaction} idTransaction={1} /> */}
         <TransactionList transactions={transactions} />
       </div>
     </div>
