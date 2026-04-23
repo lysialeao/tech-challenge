@@ -14,9 +14,10 @@ export default function Home() {
     error,
     fetchTransactions,
     createTransaction,
+    editTransaction,
   } = useTransactions();
 
-  const { isOpen: isModalOpen, close: closeModal } = useModalStore();
+  const { isOpen: isModalOpen, editingTransaction, close: closeModal } = useModalStore();
 
   useEffect(() => {
     fetchTransactions();
@@ -38,9 +39,21 @@ export default function Home() {
             <div onClick={(e) => e.stopPropagation()}>
               <AddTransactionForm
                 addTransaction={(transaction) => {
-                  createTransaction(transaction);
+                  if (editingTransaction) {
+                    editTransaction(editingTransaction.id, {
+                      description: transaction.description,
+                      price: transaction.type === "outcome"
+                        ? -Math.abs(transaction.price)
+                        : Math.abs(transaction.price),
+                      type: transaction.type,
+                      category: transaction.category,
+                    });
+                  } else {
+                    createTransaction(transaction);
+                  }
                   closeModal();
                 }}
+                editingTransaction={editingTransaction}
                 onClose={closeModal}
               />
             </div>

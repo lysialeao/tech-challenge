@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { ITransaction } from "../types/transaction";
+import { useModalStore } from "../store/useModalStore";
 
 interface TransactionListProps {
   transactions: ITransaction[];
@@ -22,6 +23,7 @@ function formatDate(dateStr: string): string {
 
 export const TransactionList = ({ transactions }: TransactionListProps) => {
   const [search, setSearch] = useState("");
+  const openEdit = useModalStore((state) => state.openEdit);
 
   const filtered = search
     ? transactions.filter((t) =>
@@ -52,7 +54,8 @@ export const TransactionList = ({ transactions }: TransactionListProps) => {
           {filtered.map((transaction) => (
             <tr
               key={transaction.id}
-              className="bg-[#29292E]"
+              className="bg-[#29292E] cursor-pointer hover:bg-[#323238] transition-colors"
+              onClick={() => openEdit(transaction)}
             >
               <td className="py-4 px-6 rounded-l-md text-[#C4C4CC] w-1/2">
                 {transaction.description}
