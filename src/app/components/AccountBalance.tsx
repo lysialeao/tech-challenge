@@ -25,20 +25,20 @@ export const AccountBalance = ({ transactions }: AccountBalanceProps) => {
 
   return (
     <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-4 px-20 py-10 dark:bg-[#121214] bg-[#d1fae5]">
-      <div className="bg-zinc-800 rounded-lg p-10 shadow-md flex justify-between items-center">
+      <div className=" bg-white dark:bg-zinc-800 rounded-lg p-10 shadow-md flex justify-between items-center">
         <div>
-          <p className="text-sm text-gray-400">Entradas</p>
-          <p className="text-xl font-semibold text-white">
+          <p className="text-sm  text-black dark:text-gray-400">Entradas</p>
+          <p className="text-xl font-semibold text-black dark:text-white">
             R$ {valueFormatted(summary.credit)}
           </p>
         </div>
         <div className="text-green-400">⬆</div>
       </div>
 
-      <div className="bg-zinc-800 rounded-lg p-10 shadow-md flex justify-between items-center">
+      <div className=" bg-white dark:bg-zinc-800 rounded-lg p-10 shadow-md flex justify-between items-center">
         <div>
-          <p className="text-sm text-gray-400">Saídas</p>
-          <p className="text-xl font-semibold text-white">
+          <p className="text-sm  text-black dark:text-gray-400">Saídas</p>
+          <p className="text-xl font-semibold text-black dark:text-white">
             R$ {valueFormatted(summary.debit)}
           </p>
         </div>

@@ -62,14 +62,14 @@ export const AddTransactionForm = ({
   return (
     <form
       onSubmit={handleSubmit}
-      className="bg-[#202024] shadow-md rounded-2xl p-6 w-full max-w-md mx-auto flex flex-col gap-4"
+      className="bg-[#D1FAE5] dark:bg-[#202024] shadow-md rounded-2xl p-6 w-full max-w-md mx-auto flex flex-col gap-4"
     >
       <div className="flex justify-between">
-        <h2 className="text-xl font-semibold text-[#E1E1E6]">
+        <h2 className="text-xl font-semibold dark:text-[#E1E1E6]">
           {editingTransaction ? "Editar transação" : "Nova transação"}
         </h2>
-        <span className="text-[#7C7C8A] cursor-pointer" onClick={onClose}>
-          🗙
+        <span className="dark:text-[#7C7C8A] cursor-pointer" onClick={onClose}>
+          X
         </span>
       </div>
 
@@ -77,7 +77,7 @@ export const AddTransactionForm = ({
         <input
           placeholder="Descrição"
           type="text"
-          className="border-0 bg-[#121214] h-[40px] text-[#E1E1E6] rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-gray-400"
+          className="border-0  dark:bg-[#121214] h-[40px] dark:text-[#E1E1E6] rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-gray-400"
           value={newTransaction.description}
           onChange={(e) =>
             setNewTransaction({
@@ -92,10 +92,10 @@ export const AddTransactionForm = ({
         <input
           placeholder="Valor"
           type="text"
-          className="border-0 bg-[#121214] h-[40px] text-[#E1E1E6] rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-gray-400"
+          className="border-0 dark:bg-[#121214] h-[40px] dark:text-[#E1E1E6] rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-gray-400"
           value={priceString}
           onChange={(e) => {
-            const value = e.target.value;            
+            const value = e.target.value;
             const formattedValue = value.replace(/\./g, ',');
             const cleanedValue = formattedValue.replace(/[^0-9,]/g, '');
             setPriceString(cleanedValue);
@@ -108,7 +108,7 @@ export const AddTransactionForm = ({
           placeholder="Categoria"
           type="text"
           list="categorias"
-          className="border-0 bg-[#121214] h-[40px] text-[#E1E1E6] rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-gray-400"
+          className="border-0 dark:bg-[#121214] h-[40px] dark:text-[#E1E1E6] rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-gray-400"
           value={newTransaction.category}
           onChange={(e) =>
             setNewTransaction({
@@ -134,7 +134,7 @@ export const AddTransactionForm = ({
               type: "income",
             });
           }}
-          className={`text-[#00B37E] bg-[#323238] w-[150px] h-[40px] rounded cursor-pointer  flex 
+          className={`text-[#00B37E] dark:bg-[#323238] w-[150px] h-[40px] border rounded cursor-pointer  flex 
             items-center justify-center ${newTransaction.type === "income" ? "outline outline-2" : ""}`}
         >
           ⬆ Entrada
@@ -146,7 +146,7 @@ export const AddTransactionForm = ({
               type: "outcome",
             });
           }}
-          className={`text-[#F75A68] bg-[#323238] w-[150px] h-[40px] rounded cursor-pointer flex 
+          className={`text-[#F75A68] dark:bg-[#323238] w-[150px] h-[40px] border rounded cursor-pointer flex 
             items-center justify-center ${newTransaction.type === "outcome" ? "outline outline-2" : ""}`}
         >
           ⬇ Saída

@@ -23,14 +23,6 @@
       "description": "Lanche",
       "type": "outcome",
       "category": "Alimentação"
-    },
-    {
-      "id": 1777861344658,
-      "createdAt": "2026-05-04T02:22:51.081Z",
-      "price": 598.9,
-      "description": "Protótipo Figma",
-      "type": "income",
-      "category": "Renda extra"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
