@@ -42,7 +42,7 @@ export const TransactionList = ({ transactions }: TransactionListProps) => {
           placeholder="Busque uma transação"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          className="flex-1 bg-[#121214] border border-[#323238] text-[#C4C4CC] rounded-md px-4 py-3 placeholder-[#7C7C8A] focus:outline-none"
+          className="flex-1 bg-[#D1FAE5] dark:bg-[#121214] border border-green-200 dark:border-[#323238] text-black dark:text-[#C4C4CC] rounded-md px-4 py-3 placeholder-[#7C7C8A] focus:outline-none"
         />
         {/* <button
           onClick={() => {}}
@@ -57,9 +57,9 @@ export const TransactionList = ({ transactions }: TransactionListProps) => {
           {filtered.map((transaction) => (
             <tr
               key={transaction.id}
-              className="bg-[#29292E] hover:bg-[#323238] transition-colors"
+              className=" bg-[#D1FAE5] dark:bg-[#29292E] hover:bg-green-200 dark:hover:bg-[#323238] transition-colors"
             >
-              <td className="py-4 px-6 rounded-l-md text-[#C4C4CC] w-1/2">
+              <td className="py-4 px-6 rounded-l-md text-black dark:text-[#C4C4CC] w-1/4">
                 {transaction.description}
               </td>
               <td
@@ -70,10 +70,10 @@ export const TransactionList = ({ transactions }: TransactionListProps) => {
                 {transaction.price < 0 ? "- " : ""}R${" "}
                 {formatCurrency(Math.abs(transaction.price))}
               </td>
-              <td className="py-4 px-6 text-[#C4C4CC]">
+              <td className="py-4 px-6 text-black dark:text-[#C4C4CC]">
                 {transaction.category}
               </td>
-              <td className="py-4 px-6 text-[#C4C4CC]">
+              <td className="py-4 px-6 text-black dark:text-[#C4C4CC]">
                 {formatDate(transaction.createdAt)}
               </td>
               <td className="py-4 px-6 rounded-r-md">
